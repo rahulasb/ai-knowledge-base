@@ -9,6 +9,9 @@ export const generateEmbedding = async (text: string): Promise<number[]> => {
         return result.embedding.values;
     } catch (error) {
         console.error('Error generating embedding:', error);
+        if (error instanceof Error) {
+            console.error('Error message:', error.message);
+        }
         throw error;
     }
 };
